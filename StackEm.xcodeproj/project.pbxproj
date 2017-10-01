@@ -7,14 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63A96CFB1F49E0B100283217 /* ImageSearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A96CFA1F49E0B100283217 /* ImageSearchCollectionViewController.swift */; };
 		63D592A11F47B77E00BB4E37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D592A01F47B77E00BB4E37 /* AppDelegate.swift */; };
 		63D592A31F47B77E00BB4E37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D592A21F47B77E00BB4E37 /* ViewController.swift */; };
 		63D592A61F47B77E00BB4E37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63D592A41F47B77E00BB4E37 /* Main.storyboard */; };
 		63D592A81F47B77E00BB4E37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63D592A71F47B77E00BB4E37 /* Assets.xcassets */; };
 		63D592AB1F47B77E00BB4E37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63D592A91F47B77E00BB4E37 /* LaunchScreen.storyboard */; };
+		63D592E31F47DC5800BB4E37 /* ImagePickerPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63D592D51F47DC5700BB4E37 /* ImagePickerPhotosViewController.xib */; };
+		63D592E41F47DC5800BB4E37 /* ImagePickerSetsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63D592D61F47DC5700BB4E37 /* ImagePickerSetsTableViewCell.xib */; };
+		63D592E51F47DC5800BB4E37 /* ImagePickerSetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D592D71F47DC5700BB4E37 /* ImagePickerSetsViewController.m */; };
+		63D592E61F47DC5800BB4E37 /* ImagePickerPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D592D81F47DC5700BB4E37 /* ImagePickerPhotosViewController.m */; };
+		63D592E71F47DC5800BB4E37 /* ImagePickerPhotosCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63D592D91F47DC5700BB4E37 /* ImagePickerPhotosCollectionViewCell.xib */; };
+		63D592E81F47DC5800BB4E37 /* ImagePickerPhotosCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D592DB1F47DC5700BB4E37 /* ImagePickerPhotosCollectionViewCell.m */; };
+		63D592EA1F47DC5800BB4E37 /* ImagePickerSetsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D592DD1F47DC5700BB4E37 /* ImagePickerSetsTableViewCell.m */; };
+		63D592EB1F47DC5800BB4E37 /* ImagePickerSetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63D592DE1F47DC5700BB4E37 /* ImagePickerSetsViewController.xib */; };
+		63D592EF1F47DE1400BB4E37 /* NSData+Save.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D592EE1F47DE1400BB4E37 /* NSData+Save.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		632317DD1F47E90C00D73252 /* StackEm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StackEm-Bridging-Header.h"; sourceTree = "<group>"; };
+		63A96CFA1F49E0B100283217 /* ImageSearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchCollectionViewController.swift; sourceTree = "<group>"; };
 		63D5929D1F47B77E00BB4E37 /* StackEm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackEm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63D592A01F47B77E00BB4E37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63D592A21F47B77E00BB4E37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +34,20 @@
 		63D592A71F47B77E00BB4E37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63D592AA1F47B77E00BB4E37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63D592AC1F47B77E00BB4E37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63D592D41F47DC5700BB4E37 /* ImagePickerSetsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerSetsTableViewCell.h; sourceTree = "<group>"; };
+		63D592D51F47DC5700BB4E37 /* ImagePickerPhotosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePickerPhotosViewController.xib; sourceTree = "<group>"; };
+		63D592D61F47DC5700BB4E37 /* ImagePickerSetsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePickerSetsTableViewCell.xib; sourceTree = "<group>"; };
+		63D592D71F47DC5700BB4E37 /* ImagePickerSetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerSetsViewController.m; sourceTree = "<group>"; };
+		63D592D81F47DC5700BB4E37 /* ImagePickerPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerPhotosViewController.m; sourceTree = "<group>"; };
+		63D592D91F47DC5700BB4E37 /* ImagePickerPhotosCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePickerPhotosCollectionViewCell.xib; sourceTree = "<group>"; };
+		63D592DB1F47DC5700BB4E37 /* ImagePickerPhotosCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerPhotosCollectionViewCell.m; sourceTree = "<group>"; };
+		63D592DD1F47DC5700BB4E37 /* ImagePickerSetsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerSetsTableViewCell.m; sourceTree = "<group>"; };
+		63D592DE1F47DC5700BB4E37 /* ImagePickerSetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagePickerSetsViewController.xib; sourceTree = "<group>"; };
+		63D592DF1F47DC5700BB4E37 /* ImagePickerSetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerSetsViewController.h; sourceTree = "<group>"; };
+		63D592E01F47DC5700BB4E37 /* ImagePickerPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerPhotosViewController.h; sourceTree = "<group>"; };
+		63D592E11F47DC5700BB4E37 /* ImagePickerPhotosCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerPhotosCollectionViewCell.h; sourceTree = "<group>"; };
+		63D592ED1F47DE1400BB4E37 /* NSData+Save.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Save.h"; sourceTree = "<group>"; };
+		63D592EE1F47DE1400BB4E37 /* NSData+Save.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Save.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +66,7 @@
 			children = (
 				63D5929F1F47B77E00BB4E37 /* StackEm */,
 				63D5929E1F47B77E00BB4E37 /* Products */,
+				632317DD1F47E90C00D73252 /* StackEm-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +81,7 @@
 		63D5929F1F47B77E00BB4E37 /* StackEm */ = {
 			isa = PBXGroup;
 			children = (
+				63D592D31F47DC5700BB4E37 /* AssetPicker */,
 				63D592A01F47B77E00BB4E37 /* AppDelegate.swift */,
 				63D592A21F47B77E00BB4E37 /* ViewController.swift */,
 				63D592A41F47B77E00BB4E37 /* Main.storyboard */,
@@ -62,6 +90,28 @@
 				63D592AC1F47B77E00BB4E37 /* Info.plist */,
 			);
 			path = StackEm;
+			sourceTree = "<group>";
+		};
+		63D592D31F47DC5700BB4E37 /* AssetPicker */ = {
+			isa = PBXGroup;
+			children = (
+				63D592ED1F47DE1400BB4E37 /* NSData+Save.h */,
+				63D592EE1F47DE1400BB4E37 /* NSData+Save.m */,
+				63D592E11F47DC5700BB4E37 /* ImagePickerPhotosCollectionViewCell.h */,
+				63D592DB1F47DC5700BB4E37 /* ImagePickerPhotosCollectionViewCell.m */,
+				63D592D91F47DC5700BB4E37 /* ImagePickerPhotosCollectionViewCell.xib */,
+				63D592E01F47DC5700BB4E37 /* ImagePickerPhotosViewController.h */,
+				63D592D81F47DC5700BB4E37 /* ImagePickerPhotosViewController.m */,
+				63D592D51F47DC5700BB4E37 /* ImagePickerPhotosViewController.xib */,
+				63D592D41F47DC5700BB4E37 /* ImagePickerSetsTableViewCell.h */,
+				63D592DD1F47DC5700BB4E37 /* ImagePickerSetsTableViewCell.m */,
+				63D592D61F47DC5700BB4E37 /* ImagePickerSetsTableViewCell.xib */,
+				63D592DF1F47DC5700BB4E37 /* ImagePickerSetsViewController.h */,
+				63D592D71F47DC5700BB4E37 /* ImagePickerSetsViewController.m */,
+				63D592DE1F47DC5700BB4E37 /* ImagePickerSetsViewController.xib */,
+				63A96CFA1F49E0B100283217 /* ImageSearchCollectionViewController.swift */,
+			);
+			path = AssetPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +172,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D592E41F47DC5800BB4E37 /* ImagePickerSetsTableViewCell.xib in Resources */,
 				63D592AB1F47B77E00BB4E37 /* LaunchScreen.storyboard in Resources */,
+				63D592EB1F47DC5800BB4E37 /* ImagePickerSetsViewController.xib in Resources */,
+				63D592E31F47DC5800BB4E37 /* ImagePickerPhotosViewController.xib in Resources */,
 				63D592A81F47B77E00BB4E37 /* Assets.xcassets in Resources */,
 				63D592A61F47B77E00BB4E37 /* Main.storyboard in Resources */,
+				63D592E71F47DC5800BB4E37 /* ImagePickerPhotosCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +189,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A96CFB1F49E0B100283217 /* ImageSearchCollectionViewController.swift in Sources */,
 				63D592A31F47B77E00BB4E37 /* ViewController.swift in Sources */,
+				63D592E51F47DC5800BB4E37 /* ImagePickerSetsViewController.m in Sources */,
+				63D592E81F47DC5800BB4E37 /* ImagePickerPhotosCollectionViewCell.m in Sources */,
 				63D592A11F47B77E00BB4E37 /* AppDelegate.swift in Sources */,
+				63D592EF1F47DE1400BB4E37 /* NSData+Save.m in Sources */,
+				63D592EA1F47DC5800BB4E37 /* ImagePickerSetsTableViewCell.m in Sources */,
+				63D592E61F47DC5800BB4E37 /* ImagePickerPhotosViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +275,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -264,6 +325,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -278,6 +340,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidcharlec.StackEm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SWIFT_MODULE_NAME)-Bridging-Header.h";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -292,6 +356,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidcharlec.StackEm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SWIFT_MODULE_NAME)-Bridging-Header.h";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
