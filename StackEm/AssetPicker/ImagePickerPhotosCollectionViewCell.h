@@ -11,7 +11,8 @@
 
 @interface ImagePickerPhotosCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (strong, nonatomic, nonnull) IBOutlet UIImageView *photoImageView;
+@property (strong, nonatomic, nonnull) IBOutlet UILabel *rawLabel;
 @property (nonatomic) PHImageRequestID requestID;
 
 @end

@@ -11,18 +11,45 @@
 #import "NSData+Save.h"
 
 static const CGFloat kCollectionViewTopContentInset = 6.0;
-static const CGFloat kCollectionViewLeftContentInset = 3.0;
+static const CGFloat kCollectionViewLeftContentInset = 0.0;
 static const CGFloat kCollectionViewBottomContentInset = 3.0;
-static const CGFloat kCollectionViewRightContentInset = 3.0;
+static const CGFloat kCollectionViewRightContentInset = 0.0;
 
 static const CGFloat kMinimumInteritemSpacing = 3.0;
 static const CGFloat kMinimumLineSpacing = 3.0;
 
 static const CGFloat perPage = 100;
 
+@interface DCAsset : NSObject
+
+@property (nonatomic, strong) NSString *filename;
+@property (nonatomic, strong) NSString *filenameWithoutExtension;
+@property (nonatomic, strong) PHAsset *asset;
+@property (nonatomic) BOOL isRAW;
+
+@end
+
+@implementation DCAsset
+
+- (void)setFilename:(NSString *)filename {
+    _filename = filename;
+    NSArray *fileComponents = [filename componentsSeparatedByString:@"."];
+    NSString *fileExtension = [[fileComponents lastObject] lowercaseString];
+    if ([fileExtension isEqualToString:@"jpg"] || [fileExtension isEqualToString:@"jpeg"]) {
+        self.isRAW = NO;
+    } else {
+        self.isRAW = YES;
+    }
+    self.filenameWithoutExtension = [[fileComponents subarrayWithRange:NSMakeRange(0, fileComponents.count - 1)] componentsJoinedByString:@"."];
+}
+
+@end
+
+
 @interface ImagePickerPhotosViewController () <UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (nonatomic, strong) PHFetchResult *assetFetchResults;
+//@property (nonatomic, strong) PHFetchResult *assetFetchResults;
+@property (nonatomic, strong) NSArray *assetFetchResults;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -31,6 +58,8 @@ static const CGFloat perPage = 100;
 @property (nonatomic) BOOL isLoading;
 @property (nonatomic, strong) PHFetchOptions *fetchOptions;
 
+@property (nonatomic) BOOL onlyShowPhotosWithDuplicateNames;
+@property (strong, nonatomic) NSMutableArray *fileNames;
 @end
 
 @implementation ImagePickerPhotosViewController
@@ -43,10 +72,9 @@ static const CGFloat perPage = 100;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.fileNames = [@[] mutableCopy];
     self.pageNumber = 0;
-    
+    self.onlyShowPhotosWithDuplicateNames = YES;
     // Register cell classes
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([ImagePickerPhotosCollectionViewCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:NSStringFromClass([ImagePickerPhotosCollectionViewCell class])];
     self.collectionView.alwaysBounceVertical = YES;
@@ -80,11 +108,48 @@ static const CGFloat perPage = 100;
             
             self.fetchOptions.fetchLimit = perPage * self.pageNumber;
             
-//            PHFetchResult *fetchResults = [PHAsset fetchAssetsInAssetCollection:self.assetCollection options:self.fetchOptions];
             PHFetchResult *fetchResults = [PHAsset fetchAssetsInAssetCollection:self.assetCollection options:nil];
             
+//            self.assetFetchResults = [fetchResults objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, fetchResults.count)]];
+
+            NSMutableArray *photos = [@[] mutableCopy];
+            for (PHAsset *asset in fetchResults) {
+                NSArray *resources = [PHAssetResource assetResourcesForAsset:asset];
+                NSString *orgFilename = ((PHAssetResource *)resources[0]).originalFilename;
+                DCAsset *photo = [DCAsset new];
+                photo.filename = orgFilename;
+                photo.asset = asset;
+                [photos addObject:photo];
+            }
+            
+            self.assetFetchResults = photos;
+            
+            if (self.onlyShowPhotosWithDuplicateNames) {
+                NSMutableArray *duplicatePhotos = [@[] mutableCopy];
+                NSMutableDictionary *duplicates = [@{} mutableCopy];
+                for (DCAsset *asset in self.assetFetchResults) {
+                    NSMutableArray *content = duplicates[asset.filenameWithoutExtension];
+                    if (content) {
+                        [content addObject:asset];
+                    } else {
+                        content = [@[asset] mutableCopy];
+                    }
+                    duplicates[asset.filenameWithoutExtension] = content;
+                }
+                
+                for (NSMutableArray *array in [duplicates allValues]) {
+                    if (array.count > 1) {
+                        [duplicatePhotos addObjectsFromArray:array];
+                    }
+                }
+                self.assetFetchResults = duplicatePhotos;
+            }
+            
+            self.assetFetchResults = [self.assetFetchResults sortedArrayUsingComparator:^NSComparisonResult(DCAsset *obj1, DCAsset *obj2) {
+                return [obj1.filename compare:obj2.filename];
+            }];
+
             dispatch_async(dispatch_get_main_queue(), ^(void) {
-                self.assetFetchResults = fetchResults;
                 [self.collectionView reloadData];
                 self.isLoading = NO;
             });
@@ -129,14 +194,15 @@ static const CGFloat perPage = 100;
 
 - (PHAsset *)assetAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.assetFetchResults[indexPath.item];
+    DCAsset *asset = self.assetFetchResults[indexPath.item];
+    return asset.asset;
 }
 
 #pragma mark - <UICollectionViewDataSource>
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [self loadAssets];
+//    [self loadAssets];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section;
@@ -149,6 +215,9 @@ static const CGFloat perPage = 100;
     PHAsset *asset = [self assetAtIndexPath:indexPath];
     
     ImagePickerPhotosCollectionViewCell *cell = (ImagePickerPhotosCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ImagePickerPhotosCollectionViewCell class]) forIndexPath:indexPath];
+    
+    DCAsset *photo = self.assetFetchResults[indexPath.item];
+    cell.rawLabel.hidden = !photo.isRAW;
     
     PHImageRequestOptions *options = [PHImageRequestOptions new];
     options.resizeMode = PHImageRequestOptionsResizeModeFast;
@@ -175,7 +244,7 @@ static const CGFloat perPage = 100;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(120, 120);
+    return CGSizeMake(136, 136);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

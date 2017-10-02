@@ -1,38 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Rvh-GY-RXe" customClass="ImagePickerPhotosCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="144" height="161"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="144" height="161"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1hL-yn-6aK">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="144" height="161"/>
                         <color key="backgroundColor" red="0.72549021244049072" green="0.75686275959014893" blue="0.78039216995239258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RAW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Gm-hu-ywB">
+                        <rect key="frame" x="106" y="8" width="30" height="16"/>
+                        <color key="backgroundColor" white="1" alpha="0.19732064260563381" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="1Eb-UY-3gh"/>
+                            <constraint firstAttribute="width" constant="30" id="OIg-zg-guS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="1hL-yn-6aK" firstAttribute="top" secondItem="Rvh-GY-RXe" secondAttribute="top" id="Gjz-SN-aMv"/>
                 <constraint firstAttribute="bottom" secondItem="1hL-yn-6aK" secondAttribute="bottom" id="Hbs-7g-hEV"/>
                 <constraint firstItem="1hL-yn-6aK" firstAttribute="leading" secondItem="Rvh-GY-RXe" secondAttribute="leading" id="WeD-s3-OLd"/>
+                <constraint firstAttribute="trailing" secondItem="3Gm-hu-ywB" secondAttribute="trailing" constant="8" id="oIt-Dg-US2"/>
                 <constraint firstAttribute="trailing" secondItem="1hL-yn-6aK" secondAttribute="trailing" id="peH-D5-HoO"/>
+                <constraint firstItem="3Gm-hu-ywB" firstAttribute="top" secondItem="Rvh-GY-RXe" secondAttribute="top" constant="8" id="wba-hz-hhf"/>
             </constraints>
+            <size key="customSize" width="144" height="161"/>
             <connections>
                 <outlet property="photoImageView" destination="1hL-yn-6aK" id="pOG-Bm-q9v"/>
+                <outlet property="rawLabel" destination="3Gm-hu-ywB" id="oAn-cb-jeG"/>
             </connections>
-            <point key="canvasLocation" x="173" y="88"/>
+            <point key="canvasLocation" x="-15" y="29"/>
         </collectionViewCell>
     </objects>
 </document>
